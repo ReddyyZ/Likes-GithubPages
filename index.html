@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Likes no Github Pages</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<button onclick="like('nome-artigo')">
+			<img src="like.png" width="150px" height="150px">
+		</button>
+		<h1 class="likes"></h1>
+		
+		<script>
+			async function getLike(){
+				var x = await fetch("http://192.168.1.106/likes-website");
+				var y = document.getElementsByClassName("likes")[0];
+				
+				var likes = JSON.parse(await x.text());
+				console.log(likes['nome-artigo']);
+
+				y.innerHTML = likes['nome-artigo'] ? likes['nome-artigo'].length + ' likes' : "0 likes";
+			}
+
+			async function like(nome_artigo){
+				await fetch("http://192.168.1.106/likes-website/like.php?article=" + nome_artigo);
+				window.location.reload(false);
+			}
+
+			getLike();
+		</script>
+	</body>
+</html>

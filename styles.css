@@ -1,0 +1,22 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	font-size: 28px;
+	margin-right: 10px;
+	border: 0;
+	outline: none;
+	transition: opacity 0.3s;
+}
+
+h1 {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+	cursor: pointer;
+	opacity: 90%;
+}
